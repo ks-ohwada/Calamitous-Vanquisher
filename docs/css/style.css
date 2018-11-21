@@ -306,9 +306,9 @@ body {
 
 .main .members .members-inner .members-image .members-images-frame img {
   width: 250px;
-  vertical-align: bottom;
   transition: 0.4s;
   -o-transition: 0.4s;
+  display: block;
 }
 
 .main .members .members-inner .members-image .members-images-frame img:hover {
@@ -316,7 +316,7 @@ body {
   -o-transform: scale(1.1);
   transition: 0.4s;
   -o-transition: 0.4s;
-  vertical-align: bottom;
+  display: block;
 }
 
 .main .members .members-inner .members-image .members-name {

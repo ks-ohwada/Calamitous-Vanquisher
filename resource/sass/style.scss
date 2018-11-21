@@ -188,16 +188,16 @@ body {
           -ms-box-shadow: 6px 6px #ccc;
           img {
             width: 250px;
-            vertical-align: bottom;
             transition: 0.4s;
             -o-transition: 0.4s;
+            display: block;
           }
           img:hover {
             transform: scale(1.1);
             -o-transform: scale(1.1);
             transition: 0.4s;
             -o-transition: 0.4s;
-            vertical-align: bottom;
+            display: block;
           }
         }
         .members-name {
