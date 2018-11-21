@@ -316,6 +316,7 @@ body {
   -o-transform: scale(1.1);
   transition: 0.4s;
   -o-transition: 0.4s;
+  vertical-align: bottom;
 }
 
 .main .members .members-inner .members-image .members-name {
