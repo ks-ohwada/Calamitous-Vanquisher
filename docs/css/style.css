@@ -308,11 +308,14 @@ body {
   width: 250px;
   vertical-align: bottom;
   transition: 0.4s;
+  -o-transition: 0.4s;
 }
 
 .main .members .members-inner .members-image .members-images-frame img:hover {
   transform: scale(1.1);
+  -o-transform: scale(1.1);
   transition: 0.4s;
+  -o-transition: 0.4s;
 }
 
 .main .members .members-inner .members-image .members-name {
