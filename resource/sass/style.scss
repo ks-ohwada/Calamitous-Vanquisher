@@ -1,0 +1,250 @@
+@charset "utf-8";
+@import 'reset';
+
+@function get_percent($size, $viewport: 375) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1%;
+}
+
+@function get_vw($size, $viewport: 375) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+@function get_px($size) {
+  @return 1px;
+}
+
+@mixin fz_vw($font_size: 10) {
+  font-size: $font_size * 1px;
+  font-size: get_vw($font_size);
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+body {
+  min-width: 1150px;
+}
+
+.header {
+  width: 100%;
+  background-color: #000;
+
+  .nav {
+    width: 1100px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+
+    .nav-list {
+      width: 400px;
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        font-size: 13px;
+        text-decoration: none;
+        color: #fff;
+      }
+      li {
+        position: relative;
+        display: inline-block;
+      }
+      li:before,
+      li:after {
+        position: absolute;
+        top: 1.3em;
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 2px;
+        background: #ffff;
+        transition: 0.4s;
+      }
+      li:before {
+        left: 50%;
+      }
+      li:after {
+        right: 50%;
+      }
+      li:hover:before,
+      li:hover:after {
+        width: 50%;
+      }
+      .nav-active:before,
+      .nav-active:after {
+        width: 50%;
+      }
+    }
+    .nav-logo {
+      color: #fff;
+      float: right;
+      font-size: 13px;
+    }
+  }
+}
+
+.mainvisual {
+  position: relative;
+
+  .slide-list {
+    img {
+      width: 100%;
+    }
+  }
+
+  .mainvisual-heading {
+    font-size: 140px;
+    color: #fff;
+    opacity: 0.7;
+    font-family: 'Josefin Sans', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  .mainvisual-logo {
+    position: absolute;
+    bottom: 22px;
+    right: get_percent(40, 1100/2);
+    width: 200px;
+    img {
+      width: 100%;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  background-image: url('../images/cv_main_bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  padding-bottom: 180px;
+
+  .intro {
+    width: 800px;
+    margin: 0 auto;
+    font-family: 'Noto Sans JP', sans-serif;
+
+    .intro-heading {
+      font-family: 'Josefin Sans', sans-serif;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 26px;
+      border-bottom: 1px solid #000;
+      width: 480px;
+    }
+    .intro-text {
+      padding-top: 60px;
+      font-size: 14px;
+      color: #777;
+      line-height: 24px;
+    }
+  }
+
+  .members {
+    width: 1100px;
+    margin: 180px auto 0;
+    // background-color: #000;
+    .members-heading {
+      font-family: 'Josefin Sans', sans-serif;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 26px;
+      border-bottom: 1px solid #000;
+      width: 140px;
+    }
+    .members-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .members-image {
+        width: 240px;
+        cursor: pointer;
+
+        .members-images-frame {
+          width: 240px;
+          height: 240px;
+          overflow: hidden;
+          -moz-box-shadow: 6px 6px #ccc;
+          -webkit-box-shadow: 6px 6px #ccc;
+          -o-box-shadow: 6px 6px #ccc;
+          -ms-box-shadow: 6px 6px #ccc;
+          img {
+            width: 250px;
+            vertical-align: bottom;
+            transition: 0.4s;
+          }
+          img:hover {
+            transform: scale(1.1);
+            transition: 0.4s;
+          }
+        }
+        .members-name {
+          font-family: 'Josefin Sans', sans-serif;
+          font-size: 14px;
+          margin-top: 24px;
+        }
+      }
+    }
+    .members-inner:nth-of-type(1) {
+      margin-top: 60px;
+    }
+    .members-inner:nth-of-type(2) {
+      margin-top: 30px;
+      width: 812px;
+    }
+  }
+
+  .movies {
+    width: 1100px;
+    margin: 180px auto 0;
+    .movies-heading {
+      font-family: 'Josefin Sans', sans-serif;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 26px;
+      border-bottom: 1px solid #000;
+      width: 100px;
+    }
+    .movies-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .movies-box {
+        iframe {
+          width: 520px;
+          height: 280px;
+        }
+        .movies-name {
+          font-family: 'Josefin Sans', sans-serif;
+          font-size: 14px;
+          margin-top: 20px;
+        }
+      }
+    }
+    .movies-inner:nth-of-type(1) {
+      margin-top: 60px;
+    }
+    .movies-inner:nth-of-type(2) {
+      margin-top: 30px;
+    }
+  }
+}
